@@ -1,0 +1,136 @@
+.container {
+  min-height: 85vh;
+}
+
+main > div > h1 {
+  color: var(--blue-dark);
+  margin-bottom: 1em;
+}
+main > div > h1.editTitle {
+  color: var(--green-medium);
+  margin: 1em;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 2em auto;
+  border-radius: 10px;
+  background: #e6e6ea;
+  padding: 5em;
+}
+
+.wrapper small {
+  font-weight: bold;
+  margin-top: 0.4em;
+}
+
+.wrapper > img {
+  max-width: 330px;
+  max-height: 330px;
+}
+
+.wrapper img.clickable {
+  cursor: pointer;
+}
+
+.wrapper form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper form input.title {
+  border: none;
+  border-radius: 30px;
+  height: 3em;
+  margin-bottom: 2em;
+  text-align: center;
+  outline: none;
+}
+.wrapper form textarea {
+  height: 6em;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em;
+}
+
+.wrapper form button {
+  width: 60%;
+  margin: 2em auto;
+  border: none;
+  border-radius: 30px;
+  height: 3em;
+  text-align: center;
+  outline: none;
+  background: var(--blue-dark);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.wrapper form button.btnEdit {
+  width: 60%;
+  margin: 2em auto;
+  border: none;
+  border-radius: 30px;
+  height: 3em;
+  text-align: center;
+  outline: none;
+  background: var(--green-medium);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.wrapper-group {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+
+.wrapper-group span.input-group input {
+  margin-right: 0.5em;
+}
+
+form > div.scrollable {
+  overflow-x: scroll;
+}
+
+form > div.scrollable table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+form > div.scrollable table td,
+form > div.scrollable table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+form > div.scrollable table tr td {
+  max-width: 250px;
+  overflow-x: hidden;
+}
+
+form > div.scrollable table tr td:nth-child(n+3) {
+  text-align: center;
+}
+
+form > div.scrollable table tr td img {
+  width: 20px;
+  height: 20px;
+}
+form > div.scrollable table tr td span img {
+  cursor: pointer;
+}

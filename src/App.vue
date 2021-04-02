@@ -1,32 +1,19 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div>
+    <BasisHeader />
     <router-view />
+    <BasisFooter />
   </div>
 </template>
+<script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+import BasisHeader from "./components/BasisHeader.vue";
+import BasisFooter from "./components/BasisFooter.vue";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  components: { BasisFooter, BasisHeader },
+  computed: {}
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style src="../src/styles/index.css" />
