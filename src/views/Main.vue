@@ -31,7 +31,7 @@
             <label for="two">Concluído</label>
           </span>
         </div>
-        <button v-if="!modeEdit">Adicionar nova</button>
+        <button v-if="!modeEdit">Adicionar</button>
         <button class="btnEdit" v-else>Editar</button>
         <div class="scrollable">
           <table>
@@ -119,7 +119,6 @@ export default {
       this.destroyTask(id);
     },
     clearInputs() {
-      this.status = "";
       this.title = "";
       this.obs = "";
     },

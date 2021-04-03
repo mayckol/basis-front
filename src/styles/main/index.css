@@ -5,6 +5,7 @@
 main > div > h1 {
   color: var(--blue-dark);
   margin-bottom: 1em;
+  text-align: center;
 }
 main > div > h1.editTitle {
   color: var(--green-medium);
@@ -90,6 +91,7 @@ main > div > h1.editTitle {
 
 .wrapper-group {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   margin-top: 2em;
 }
@@ -123,7 +125,8 @@ form > div.scrollable table tr td {
   overflow-x: hidden;
 }
 
-form > div.scrollable table tr td:nth-child(n+3) {
+form > div.scrollable table > tr:nth-child(1) > th:nth-child(n+3),
+form > div.scrollable > table > tr:nth-child(n+2) > td:nth-child(n+3){
   text-align: center;
 }
 
@@ -133,4 +136,13 @@ form > div.scrollable table tr td img {
 }
 form > div.scrollable table tr td span img {
   cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  .wrapper-group {
+    flex-direction: row;
+  }
+  .wrapper form button:after {
+    content: " nova";
+  }
 }

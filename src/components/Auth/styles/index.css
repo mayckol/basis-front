@@ -11,8 +11,10 @@
   flex-direction: column;
   border-radius: 4px;
   padding: 2em;
+  height: 20em;
+  width: 20em;
   -webkit-box-shadow: 2px 3px 3px 1px var(--blue);
-  -moz-box-shadow: 2px 3px 3px 1px var(--blue);;
+  -moz-box-shadow: 2px 3px 3px 1px var(--blue);
   box-shadow: 2px 3px 3px 1px var(--blue);
 }
 
@@ -21,6 +23,8 @@
   flex-direction: column;
   border-radius: 4px;
   padding: 2em;
+  height: 25em;
+  width: 20em;
   -webkit-box-shadow: 2px 3px 3px 1px var(--green-medium);
   -moz-box-shadow: 2px 3px 3px 1px var(--green-medium);
   box-shadow: 2px 3px 3px 1px var(--green-medium);
@@ -38,6 +42,11 @@
   border-bottom: 1px solid var(--gray-line);
   padding-bottom: 1em;
   margin-bottom: 1em;
+}
+
+.container form h2.auth-error {
+  font-size: 1.4rem;
+  color: var(--red);
 }
 
 .container form h2.register {
@@ -87,4 +96,18 @@
 
 .container form > div:last-child button:hover {
   filter: brightness(0.9);
+}
+
+@media (min-width: 1024px) {
+  .container form {
+    min-width: 35em;
+    min-height: 25em;
+  }
+}
+
+@media (min-width: 768px) {
+  .container form {
+    min-width: 30em;
+    min-height: 22em;
+  }
 }

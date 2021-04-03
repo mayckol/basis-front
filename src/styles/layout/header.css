@@ -3,7 +3,7 @@
   height: 8vh;
   display: flex;
   align-items: center;
-  padding: 0 5em;
+  padding: 0 0.5em;
   font-size: 1.2rem;
 
   background: var(--blue-dark);
@@ -29,4 +29,16 @@
 .container a:nth-child(n + 2) {
   margin: 0 5px;
   padding: 10px 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 5em;
+  }
+}
+
+@media (min-width: 460px) {
+  .container {
+    padding: 0 3em;
+  }
 }
