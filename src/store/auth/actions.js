@@ -30,7 +30,7 @@ export function retrieveToken(context, credentials) {
       })
       .then((response) => {
         if (response.status !== 202) {
-          reject("Invalid credentials");
+          resolve(response.data);
           return;
         }
         const token = response.data.access_token;
