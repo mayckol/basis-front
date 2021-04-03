@@ -1,15 +1,19 @@
 <template>
   <main class="container">
     <div class="wrapper">
-      <img v-if="!modeEdit" src="../assets/todo-img.png" />
+      <img v-if="validationError" src="../assets/error.jpg" />
+      <img v-else-if="!modeEdit" src="../assets/todo-img.png" />
       <img
         @click="prepareAddScreen"
         class="clickable"
         v-else
         src="../assets/add.jpg"
       />
-      <small class="editTitle" v-if="modeEdit"
+      <small class="editTitle" v-if="modeEdit && !validationError"
         >Para adicionar uma nova tarefa clique na imagem acima</small
+      >
+      <strong v-if="validationError" class="editTitle"
+        >Ops! Favor inserir todos campos corretamente</strong
       >
       <h1 v-if="!modeEdit">Lista de atividades</h1>
       <h1 class="editTitle" v-else>Editar atividade</h1>
@@ -70,6 +74,7 @@ import { mapActions, mapState } from "vuex";
 export default {
   name: "Main",
   data: () => ({
+    validationError: false,
     modeEdit: false,
     status: 1,
     title: "",
@@ -78,6 +83,13 @@ export default {
   }),
   mounted() {
     this.getTask();
+  },
+  watch: {
+    validationError() {
+      setTimeout(() => {
+        this.validationError = false;
+      }, 3000);
+    },
   },
   computed: {
     ...mapState("user", ["tasks"]),
@@ -98,11 +110,22 @@ export default {
         obs: this.obs,
       };
       if (!this.modeEdit) {
-        this.submitNewTask(sendData).then(() => this.clearInputs());
+        this.submitNewTask(sendData).then(({ status }) => {
+          if (status === 422) {
+            this.handleValidationError();
+            return;
+          }
+          this.clearInputs();
+        });
         return;
       }
+
       sendData.id = this.id;
-      this.updateTask(sendData);
+      this.updateTask(sendData).then(({ status }) => {
+        if (status === 422) {
+          this.handleValidationError();
+        }
+      });
     },
     prepareEditScreen({ status, title, obs, id }) {
       this.modeEdit = true;
@@ -121,6 +144,9 @@ export default {
     clearInputs() {
       this.title = "";
       this.obs = "";
+    },
+    handleValidationError() {
+      this.validationError = true;
     },
   },
 };

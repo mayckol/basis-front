@@ -29,9 +29,15 @@ main > div > h1.editTitle {
   margin-top: 0.4em;
 }
 
+.wrapper strong {
+  font-weight: bold;
+  color: var(--red);
+  margin-top: 0.4em;
+}
+
 .wrapper > img {
-  max-width: 330px;
-  max-height: 330px;
+  width: 330px;
+  height: 330px;
 }
 
 .wrapper img.clickable {
@@ -125,8 +131,8 @@ form > div.scrollable table tr td {
   overflow-x: hidden;
 }
 
-form > div.scrollable table > tr:nth-child(1) > th:nth-child(n+3),
-form > div.scrollable > table > tr:nth-child(n+2) > td:nth-child(n+3){
+form > div.scrollable table > tr:nth-child(1) > th:nth-child(n + 3),
+form > div.scrollable > table > tr:nth-child(n + 2) > td:nth-child(n + 3) {
   text-align: center;
 }
 
