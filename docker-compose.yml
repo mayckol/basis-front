@@ -6,6 +6,7 @@ services:
     container_name: basis_front
     volumes:
       - .:/app
+      - ./node_modules:/app/node_modules
     working_dir: /app
     ports:
       - 8081:8080

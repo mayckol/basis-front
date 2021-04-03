@@ -1,53 +1,12 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
-import Login from "../components/Auth/Login.vue";
-import Register from "../components/Auth/Register.vue";
-import Logout from "../components/Auth/Logout.vue";
-import Main from "../views/Main.vue";
+import routes from "./routes";
+import Router from "vue-router";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    redirect: { name: "Login" }
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-    meta: {
-      requiresVisitor: true
-    }
-  },
-  {
-    path: "/register",
-    name: "Register",
-    component: Register,
-    meta: {
-      requiresVisitor: true
-    }
-  },
-  {
-    path: "/logout",
-    name: "Logout",
-    component: Logout
-  },
-  {
-    path: "/main",
-    name: "Main",
-    component: Main,
-    meta: {
-      requiresAuth: true
-    }
-  }
-];
-
-const router = new VueRouter({
+export default new Router({
   mode: "history",
-  base: process.env.BASE_URL,
+  fallback: false,
+  scrollBehavior: () => ({ y: 0 }),
   routes,
 });
-
-export default router;

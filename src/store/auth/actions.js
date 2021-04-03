@@ -47,7 +47,7 @@ export function retrieveToken(context, credentials) {
 }
 
 export function destroyToken(context) {
-  if (context.getters.loggedIn) {
+  if (context.getters.isAuthenticated) {
     return new Promise((resolve, reject) => {
       api
         .post("/auth/logout")
@@ -64,10 +64,4 @@ export function destroyToken(context) {
         });
     });
   }
-}
-
-export async function getUserInfo(context) {
-  await api.get("user-info").then(({ data }) => {
-    context.commit("setUser", data.user);
-  });
 }

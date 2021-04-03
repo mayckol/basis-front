@@ -59,26 +59,6 @@
             </tr>
           </table>
         </div>
-        <!--        <table>-->
-        <!--          <tr>-->
-        <!--            <th>Título</th>-->
-        <!--            <th>Obs</th>-->
-        <!--            <th>Estado</th>-->
-        <!--            <th>Editar</th>-->
-        <!--            <th>Excluir</th>-->
-        <!--          </tr>-->
-        <!--          <tr v-for="task in tasks" :key="task.id">-->
-        <!--            <td>{{ task.title }}</td>-->
-        <!--            <td>{{ task.obs }}</td>-->
-        <!--            <td>{{ task.status }}</td>-->
-        <!--            <td>-->
-        <!--              <span class="editable" @click="() => prepareUpdateTask(task.id)"-->
-        <!--                >Editar</span-->
-        <!--              >-->
-        <!--            </td>-->
-        <!--            <td><span @click="() => deleteTask(task.id)">Excluír</span></td>-->
-        <!--          </tr>-->
-        <!--        </table>-->
       </form>
     </div>
   </main>

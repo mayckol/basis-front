@@ -1,11 +1,7 @@
-export const accessToken = state => {
-  return state.token;
+export const isAuthenticated = (state) => {
+  return state.token !== null && localStorage.getItem("access_token");
 };
 
-export const loggedIn = state => {
-  return state.token !== null;
-};
-
-export const user = state => {
+export const authUser = (state) => {
   return state.user;
 };
