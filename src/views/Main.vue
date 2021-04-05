@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   name: "Main",
@@ -82,7 +82,7 @@ export default {
     id: "",
   }),
   mounted() {
-    this.getTask();
+    this.getTask(this.isAuthenticated);
   },
   watch: {
     validationError() {
@@ -93,6 +93,7 @@ export default {
   },
   computed: {
     ...mapState("user", ["tasks"]),
+    ...mapGetters("auth", ["isAuthenticated"]),
   },
   methods: {
     ...mapActions("auth", ["retrieveToken"]),

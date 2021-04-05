@@ -1,10 +1,11 @@
 import api from "../../service/api";
 
-export async function getTask({ commit }, payload) {
+export async function getTask(context, token) {
+  api.defaults.headers.common["Authorization"] = "Bearer" + " " + token;
   api
-    .get("/tasks", payload)
+    .get("/tasks")
     .then((response) => {
-      commit("setTask", response.data);
+      context.commit("setTask", response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -28,7 +29,7 @@ export function submitNewTask({ commit }, payload) {
 export function updateTask({ commit }, payload) {
   return new Promise((resolve) => {
     api
-      .put("/tasks", payload)
+      .put(`/tasks/${payload.id}`, payload)
       .then((response) => {
         commit("updateTask", response.data);
         resolve(response.data);

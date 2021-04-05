@@ -3,5 +3,5 @@ export const isAuthenticated = (state) => {
 };
 
 export const authUser = (state) => {
-  return state.user;
+  return state.authUser;
 };
